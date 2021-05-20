@@ -34,32 +34,39 @@ class WindowClass(QMainWindow, form_class) :
         result=cur.fetchone()
         
         self.pummok.setRowCount(result[0])
-        self.pummok.setColumnCount(4)
+        self.pummok.setColumnCount(2)
         self.setpummokTableWidgetData()
         self.pummok.setEditTriggers(QAbstractItemView.NoEditTriggers)
+        self.pummok.setSortingEnabled(True)
+        self.pummok.horizontalHeader().setSectionResizeMode(0, QHeaderView.Stretch)
+        
         
         cur.execute("SELECT COUNT(DISTINCT 제조사) FROM new_schema.asd")
         result=cur.fetchone()
         
         self.company.setRowCount(result[0])
-        self.company.setColumnCount(3)
+        self.company.setColumnCount(1)
         self.setcompanyTableWidgetData()
         self.company.setEditTriggers(QAbstractItemView.NoEditTriggers)
+        self.pummok.setSortingEnabled(True)
+        self.pummok.horizontalHeader().setSectionResizeMode(0, QHeaderView.Stretch)
         
         cur.execute("SELECT COUNT(DISTINCT 판매업소) FROM new_schema.asd")
         result=cur.fetchone()
         
         self.place.setRowCount(result[0])
-        self.place.setColumnCount(3)
+        self.place.setColumnCount(1)
         self.setplaceTableWidgetData()
         self.place.setEditTriggers(QAbstractItemView.NoEditTriggers)
+        self.pummok.setSortingEnabled(True)
+        self.pummok.horizontalHeader().setSectionResizeMode(0, QHeaderView.Stretch)
         
         
         
     def setpummokTableWidgetData(self):
         i = 0
         
-        column_headers = ['상품명', '제조사', '올해평균가격', '전년도대비상승폭']
+        column_headers = ['상품명', '제조사']
         self.pummok.setHorizontalHeaderLabels(column_headers)
         
         query="SELECT DISTINCT 상품명 FROM new_schema.asd;"
@@ -77,7 +84,7 @@ class WindowClass(QMainWindow, form_class) :
     def setcompanyTableWidgetData(self):
         i = 0
         
-        column_headers = ['제조사', '올해평균가격', '전년도대비상승폭']
+        column_headers = ['제조사']
         self.company.setHorizontalHeaderLabels(column_headers)
         
         query="SELECT DISTINCT 제조사 FROM new_schema.asd;"
@@ -95,7 +102,7 @@ class WindowClass(QMainWindow, form_class) :
     def setplaceTableWidgetData(self):
         i = 0
         
-        column_headers = ['판매업소', '올해평균가격', '전년도대비상승폭']
+        column_headers = ['판매업소']
         self.place.setHorizontalHeaderLabels(column_headers)
         
         query="SELECT DISTINCT 판매업소 FROM new_schema.asd;"
