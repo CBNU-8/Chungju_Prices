@@ -38,11 +38,7 @@
     <set>Qt::ImhNone</set>
    </property>
    <property name="currentIndex">
-<<<<<<< HEAD
-    <number>2</number>
-=======
-    <number>1</number>
->>>>>>> 87c642d1a430be40cc310d1878eeca20f6291cdc
+    <number>0</number>
    </property>
    <property name="iconSize">
     <size>
@@ -77,148 +73,6 @@
      </property>
     </widget>
    </widget>
-<<<<<<< HEAD
-   <widget class="QWidget" name="tab_3">
-    <attribute name="title">
-     <string>판매점별</string>
-    </attribute>
-   </widget>
-   <widget class="QWidget" name="tab_4">
-    <attribute name="title">
-     <string>제조사별</string>
-    </attribute>
-    <widget class="QComboBox" name="company">
-     <property name="geometry">
-      <rect>
-       <x>270</x>
-       <y>330</y>
-       <width>571</width>
-       <height>22</height>
-      </rect>
-     </property>
-    </widget>
-    <widget class="QLabel" name="companydifflabel">
-     <property name="geometry">
-      <rect>
-       <x>500</x>
-       <y>190</y>
-       <width>64</width>
-       <height>15</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>TextLabel</string>
-     </property>
-    </widget>
-    <widget class="QWidget" name="verticalLayoutWidget_2">
-     <property name="geometry">
-      <rect>
-       <x>280</x>
-       <y>440</y>
-       <width>691</width>
-       <height>341</height>
-      </rect>
-     </property>
-     <layout class="QVBoxLayout" name="companygraph"/>
-    </widget>
-   </widget>
-   <widget class="QWidget" name="tab_2">
-    <attribute name="title">
-     <string>상품별</string>
-    </attribute>
-    <widget class="QLabel" name="label">
-     <property name="geometry">
-      <rect>
-       <x>180</x>
-       <y>70</y>
-       <width>261</width>
-       <height>71</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>전체 생필품 가격 변동량</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="pricetotal">
-     <property name="geometry">
-      <rect>
-       <x>180</x>
-       <y>140</y>
-       <width>211</width>
-       <height>51</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>30%</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="time_label">
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>20</y>
-       <width>171</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>현재시간 기준 </string>
-     </property>
-    </widget>
-    <widget class="QTableWidget" name="pummok_2">
-     <property name="geometry">
-      <rect>
-       <x>15</x>
-       <y>361</y>
-       <width>1521</width>
-       <height>461</height>
-      </rect>
-     </property>
-     <property name="defaultDropAction">
-      <enum>Qt::IgnoreAction</enum>
-     </property>
-     <property name="alternatingRowColors">
-      <bool>true</bool>
-     </property>
-     <property name="selectionBehavior">
-      <enum>QAbstractItemView::SelectRows</enum>
-     </property>
-    </widget>
-    <widget class="QComboBox" name="pummok">
-     <property name="geometry">
-      <rect>
-       <x>320</x>
-       <y>300</y>
-       <width>571</width>
-       <height>22</height>
-      </rect>
-     </property>
-    </widget>
-    <widget class="QWidget" name="verticalLayoutWidget">
-     <property name="geometry">
-      <rect>
-       <x>869</x>
-       <y>379</y>
-       <width>641</width>
-       <height>411</height>
-      </rect>
-     </property>
-     <layout class="QVBoxLayout" name="pummokgraph"/>
-    </widget>
-    <widget class="QLabel" name="difflabel">
-     <property name="geometry">
-      <rect>
-       <x>740</x>
-       <y>430</y>
-       <width>64</width>
-       <height>15</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>TextLabel</string>
-     </property>
-    </widget>
-=======
    <widget class="QWidget" name="tab_2">
     <attribute name="title">
      <string>상품별</string>
@@ -261,14 +115,17 @@
       <string>2021년 02월 기준</string>
      </property>
     </widget>
-    <widget class="QTableWidget" name="pummok_2">
+    <widget class="QTableWidget" name="pummok">
      <property name="geometry">
       <rect>
        <x>15</x>
        <y>361</y>
-       <width>1051</width>
+       <width>981</width>
        <height>461</height>
       </rect>
+     </property>
+     <property name="editTriggers">
+      <set>QAbstractItemView::EditKeyPressed|QAbstractItemView::SelectedClicked</set>
      </property>
      <property name="defaultDropAction">
       <enum>Qt::IgnoreAction</enum>
@@ -280,59 +137,32 @@
       <enum>QAbstractItemView::SelectRows</enum>
      </property>
     </widget>
-    <widget class="QComboBox" name="pummok">
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>320</y>
-       <width>571</width>
-       <height>22</height>
-      </rect>
-     </property>
-    </widget>
     <widget class="QWidget" name="formLayoutWidget">
      <property name="geometry">
       <rect>
-       <x>1100</x>
+       <x>1030</x>
        <y>360</y>
-       <width>441</width>
+       <width>521</width>
        <height>108</height>
       </rect>
      </property>
      <layout class="QFormLayout" name="formLayout">
+      <property name="fieldGrowthPolicy">
+       <enum>QFormLayout::ExpandingFieldsGrow</enum>
+      </property>
+      <property name="labelAlignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+      </property>
+      <property name="formAlignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+      </property>
       <property name="horizontalSpacing">
-       <number>40</number>
+       <number>20</number>
       </property>
       <property name="verticalSpacing">
        <number>10</number>
       </property>
       <item row="0" column="0">
-       <widget class="QLabel" name="label_2">
-        <property name="font">
-         <font>
-          <family>NanumBarunGothic</family>
-          <pointsize>10</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>상품명</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="0">
-       <widget class="QLabel" name="label_5">
-        <property name="font">
-         <font>
-          <family>NanumBarunGothic</family>
-          <pointsize>10</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>제조사</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="0">
        <widget class="QLabel" name="label_3">
         <property name="font">
          <font>
@@ -341,11 +171,14 @@
          </font>
         </property>
         <property name="text">
-         <string>평균가</string>
+         <string>올해 상품 평균가</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
         </property>
        </widget>
       </item>
-      <item row="3" column="0">
+      <item row="1" column="0">
        <widget class="QLabel" name="label_6">
         <property name="font">
          <font>
@@ -354,11 +187,14 @@
          </font>
         </property>
         <property name="text">
-         <string>변동량</string>
+         <string>올해 가격 변동량</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
         </property>
        </widget>
       </item>
-      <item row="3" column="1">
+      <item row="1" column="1">
        <widget class="QLabel" name="difflabel">
         <property name="font">
          <font>
@@ -371,14 +207,27 @@
         </property>
        </widget>
       </item>
+      <item row="0" column="1">
+       <widget class="QLabel" name="pricelabel">
+        <property name="font">
+         <font>
+          <family>NanumBarunGothic</family>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>이번년도 평균 가격이 출력됩니다.</string>
+        </property>
+       </widget>
+      </item>
      </layout>
     </widget>
     <widget class="QWidget" name="verticalLayoutWidget">
      <property name="geometry">
       <rect>
-       <x>1099</x>
+       <x>1029</x>
        <y>469</y>
-       <width>431</width>
+       <width>521</width>
        <height>351</height>
       </rect>
      </property>
@@ -402,8 +251,14 @@
           <pointsize>26</pointsize>
          </font>
         </property>
+        <property name="tabletTracking">
+         <bool>false</bool>
+        </property>
         <property name="text">
          <string>30</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
         </property>
        </widget>
       </item>
@@ -417,6 +272,9 @@
         </property>
         <property name="text">
          <string>%</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
         </property>
        </widget>
       </item>
@@ -432,7 +290,6 @@
     <attribute name="title">
      <string>제조사별</string>
     </attribute>
->>>>>>> 87c642d1a430be40cc310d1878eeca20f6291cdc
    </widget>
   </widget>
  </widget>
