@@ -82,6 +82,10 @@ function displayPlaces(places) {
     // 지도에 표시되고 있는 마커를 제거합니다
     removeMarker();
     
+    var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
+    var imageSize = new kakao.maps.Size(30, 42); 
+    var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize);
+
     for ( var i=0; i<places.length; i++ ) {
 
         // 마커를 생성하고 지도에 표시합니다
@@ -94,7 +98,8 @@ function displayPlaces(places) {
 
         // 마커를 생성합니다
         var marker = new kakao.maps.Marker({
-        position: markerPosition
+            position: markerPosition,
+            image : markerImage // 마커 이미지 
         });
 
         // 마커가 지도 위에 표시되도록 설정합니다
@@ -109,7 +114,8 @@ function displayPlaces(places) {
         // mouseout 했을 때는 인포윈도우를 닫습니다
         (function(marker, title) {
             kakao.maps.event.addListener(marker, 'mouseover', function() {
-                displayInfowindow(marker, title);
+                var htmltxt = itemEl.innerHTML;
+                displayInfowindow(marker, title, htmltxt);
             });
 
             kakao.maps.event.addListener(marker, 'mouseout', function() {
@@ -117,7 +123,8 @@ function displayPlaces(places) {
             });
 
             itemEl.onmouseover =  function () {
-                displayInfowindow(marker, title);
+                var htmltxt = itemEl.innerHTML;
+                displayInfowindow(marker, title, htmltxt);
             };
 
             itemEl.onmouseout =  function () {
@@ -140,18 +147,16 @@ function displayPlaces(places) {
 function getListItem(index, places) {
 
     var el = document.createElement('li'),
-    itemStr = '<span class="markerbg marker_' + (index+1) + '"></span>' +
-                '<div class="info">' +
-                '   <h5>' + places.place_name + '</h5>';
+    itemStr = '<div class="info">' +
+                '   <h5 style="font-size: 19px;">'+ "지점명 : " + places.place_name + '</h5>';
 
     if (places.road_address_name) {
-        itemStr += '    <span>' + places.road_address_name + '</span>' +
-                    '   <span class="jibun gray">' +  places.address_name  + '</span>';
+        itemStr += '    <span style="font-size: 19px;" >' + "주소 : " + places.road_address_name + '</span><br>';
     } else {
-        itemStr += '    <span>' +  places.address_name  + '</span>'; 
+        itemStr += '    <span >' + "주소 : " + places.address_name  + '</span><br>'; 
     }
                  
-      itemStr += '  <span class="tel">' + places.phone  + '</span>' +
+      itemStr += '  <span class="tel" style="font-size: 19px;" >' + "전화번호 : " + places.phone  + '</span><br>' +
                 '</div>';           
 
     el.innerHTML = itemStr;
@@ -159,66 +164,6 @@ function getListItem(index, places) {
 
     return el;
 }
-
-// // 마커를 생성하고 지도 위에 마커를 표시하는 함수입니다
-// function addMarker(position, idx, title) {
-//     var imageSrc = 'https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_number_blue.png', // 마커 이미지 url, 스프라이트 이미지를 씁니다
-//         imageSize = new kakao.maps.Size(36, 37),  // 마커 이미지의 크기
-//         imgOptions =  {
-//             spriteSize : new kakao.maps.Size(36, 691), // 스프라이트 이미지의 크기
-//             spriteOrigin : new kakao.maps.Point(0, (idx*46)+10), // 스프라이트 이미지 중 사용할 영역의 좌상단 좌표
-//             offset: new kakao.maps.Point(13, 37) // 마커 좌표에 일치시킬 이미지 내에서의 좌표
-//         },
-//         markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imgOptions),
-//             marker = new kakao.maps.Marker({
-//             position: position, // 마커의 위치
-//             image: markerImage 
-//         });
-
-//     marker.setMap(map); // 지도 위에 마커를 표출합니다
-//     markers.push(marker);  // 배열에 생성된 마커를 추가합니다
-
-//     return marker;
-// }
-
-// 지도 위에 표시되고 있는 마커를 모두 제거합니다
-function removeMarker() {
-    for ( var i = 0; i < markers.length; i++ ) {
-        markers[i].setMap(null);
-    }   
-    markers = [];
-}
-
-// 검색결과 목록 하단에 페이지번호를 표시는 함수입니다
-// function displayPagination(pagination) {
-//     var paginationEl = document.getElementById('pagination'),
-//         fragment = document.createDocumentFragment(),
-//         i; 
-
-//     // 기존에 추가된 페이지번호를 삭제합니다
-//     while (paginationEl.hasChildNodes()) {
-//         paginationEl.removeChild (paginationEl.lastChild);
-//     }
-
-//     for (i=1; i<=pagination.last; i++) {
-//         var el = document.createElement('a');
-//         el.href = "#";
-//         el.innerHTML = i;
-
-//         if (i===pagination.current) {
-//             el.className = 'on';
-//         } else {
-//             el.onclick = (function(i) {
-//                 return function() {
-//                     pagination.gotoPage(i);
-//                 }
-//             })(i);
-//         }
-
-//         fragment.appendChild(el);
-//     }
-//     paginationEl.appendChild(fragment);
-// }
 
 
 // json 형식의 파일에서 값들을 불러오는 함수입니다.
@@ -239,25 +184,25 @@ function callFunction(){
     if(xhttp.status == 200){
         var responseData = xhttp.responseText;
         var jsonObject = eval('(' + responseData + ')');
+
         var goods = jsonObject.상품명;
-        var date = jsonObject.조사일;
-        var price = jsonObject.판매가격;
-        var place = jsonObject.판매업소;
-        document.getElementById("goods").innerHTML = goods;
-        document.getElementById("date").innerHTML = date;
-        document.getElementById("price").innerHTML = price;
-        document.getElementById('keyword').value = place;
+            var date = jsonObject.조사일;
+            var price = jsonObject.판매가격;
+            var place = jsonObject.판매업소;
+            document.getElementById("goods").innerHTML = goods;
+            document.getElementById("date").innerHTML = date;
+            document.getElementById("price").innerHTML = price;
+            document.getElementById('keyword').value = place;
     }
   }
 }
 
 // 검색결과 목록 또는 마커를 클릭했을 때 호출되는 함수입니다
 // 인포윈도우에 장소명을 표시합니다
-function displayInfowindow(marker, title) {
+function displayInfowindow(marker, title, htmltxt) {
 
     mySend();
-    var content = 
-    '<div style="padding:0px";></div>'
+    var content = htmltxt +'<div style="padding:0px";></div>'
     +'<table  border="1" bordercolor="blue" width ="300" height="80" align = "center" >'
 	+'<th style="font-size: 15px;" align = "center" bgcolor="skybule" > 상품명 </th>'
 	+'<th style="font-size: 15px;" align = "center" bgcolor="skybule" > 조사 날짜 </th>'
@@ -268,14 +213,7 @@ function displayInfowindow(marker, title) {
     +'<td style="font-size: 15px;" id = "price"></td>'
 	+'</tr>'
     +'</table>'
-    + '<p>'
-    +'<img scr = "test.png" width="300" height="150" alt="이미지"/>'
-    + '</p>'
     
-
-
-    
-
     infowindow.setContent(content);
     infowindow.open(map, marker);
 }
@@ -289,3 +227,10 @@ function removeAllChildNods(el) {
 }
 
 
+// 지도 위에 표시되고 있는 마커를 모두 제거합니다
+function removeMarker() {
+    for ( var i = 0; i < markers.length; i++ ) {
+        markers[i].setMap(null);
+    }   
+    markers = [];
+}
