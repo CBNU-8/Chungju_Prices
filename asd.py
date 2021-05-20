@@ -99,7 +99,7 @@ class WindowClass(QMainWindow, form_class) :
             self.companydifflabel.setText(str(round((nowyear-pastyear)/pastyear*100,2))+'%')
         else: 
           self.companydifflabel.clear()
-          self.companydifflabel.setText("x") 
+          self.companydifflabel.setText("전년도 / 이번년도 데이터가 존재하지 않습니다.") 
         
         
         self.showcompanygraph()
