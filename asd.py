@@ -22,37 +22,39 @@ class WindowClass(QMainWindow, form_class) :
         super().__init__()
         self.setupUi(self)
         self.setuptableUI()
-        self.addPummok()
         self.addCompany()
-        self.pummok.currentIndexChanged.connect(self.pummokPricediff)
-        self.company.currentIndexChanged.connect(self.companyPricediff)
+        self.addPlace()
         
+        self.company.currentIndexChanged.connect(self.companyPricediff)
+        self.place.currentIndexChanged.connect(self.placePricediff)
+        self.pummok.cellClicked.connect(self.pummokPricediff)
+
 
     def setuptableUI(self):
         cur.execute("SELECT COUNT(*) FROM new_schema.asd")
         result=cur.fetchone()
         
-        self.pummok_2.setRowCount(645)
-        self.pummok_2.setColumnCount(4)
+        self.pummok.setRowCount(645)
+        self.pummok.setColumnCount(4)
         self.setTableWidgetData()
-        self.pummok_2.setEditTriggers(QAbstractItemView.NoEditTriggers)
+        self.pummok.setEditTriggers(QAbstractItemView.NoEditTriggers)
         
     def setTableWidgetData(self):
         i = 0
         
         column_headers = ['상품명', '제조사', '올해평균가격', '전년도대비상승폭']
-        self.pummok_2.setHorizontalHeaderLabels(column_headers)
+        self.pummok.setHorizontalHeaderLabels(column_headers)
         
         query="SELECT DISTINCT 상품명 FROM new_schema.asd;"
         
         cur.execute(query)
         connect.commit()
         
-        self.pummok.addItem('')
+        
         datas = cur.fetchall()
         for data in datas:
             pummokname=data[0] 
-            self.pummok_2.setItem(i , 0, QTableWidgetItem(pummokname))
+            self.pummok.setItem(i , 0, QTableWidgetItem(pummokname))
             i += 1
  
     def addCompany(self):
@@ -99,23 +101,11 @@ class WindowClass(QMainWindow, form_class) :
             self.companydifflabel.setText(str(round((nowyear-pastyear)/pastyear*100,2))+'%')
         else: 
           self.companydifflabel.clear()
-          self.companydifflabel.setText("전년도 / 이번년도 데이터가 존재하지 않습니다.") 
-        
+          self.companydifflabel.setText("x") 
         
         self.showcompanygraph()
           
                      
-    def addPummok(self):
-        query="SELECT DISTINCT 상품명 FROM new_schema.asd;"
-
-        cur.execute(query)
-        connect.commit()
-        
-        self.pummok.addItem('')
-        datas = cur.fetchall()
-        for data in datas:
-            pummokname=data[0]
-            self.pummok.addItem(pummokname)
             
     def pummokPricediff(self):
         pastyear=0
@@ -125,7 +115,7 @@ class WindowClass(QMainWindow, form_class) :
             count=0
             hap=0
             avg=0.0
-            query="SELECT 판매가격 FROM new_schema.asd WHERE 상품명 LIKE '%s' AND 조사일 LIKE '%d%%';"%(self.pummok.currentText(),i)
+            query="SELECT 판매가격 FROM new_schema.asd WHERE 상품명 LIKE '%s' AND 조사일 LIKE '%d%%';"%(self.pummok.item(self.pummok.currentRow(),0).text(),i)
             # from 뒤는 본인 mySQL "스케마.테이블"로 사용해주세요
             cur.execute(query)
             connect.commit()
@@ -156,7 +146,8 @@ class WindowClass(QMainWindow, form_class) :
 
     def showcompanygraph(self):
         distance=[]
-        
+        pastyear=0
+        nowyear=0
         
         self.fig = plt.Figure()
         self.canvas = FigureCanvas(self.fig)
@@ -169,7 +160,6 @@ class WindowClass(QMainWindow, form_class) :
             count=0
             hap=0
             avg=0.0
-            pastyear=0
             query="SELECT 판매가격 FROM new_schema.asd WHERE 제조사 LIKE '%s' AND 조사일 LIKE '%d%%';"%(self.company.currentText(),i)
             # from 뒤는 본인 mySQL "스케마.테이블"로 사용해주세요
             cur.execute(query)
@@ -184,19 +174,30 @@ class WindowClass(QMainWindow, form_class) :
                 avg=None
             else:
                 avg=hap/count
-                avg=int(avg)
+               
             
-            print(avg)
-            pastyear=nowyear
-            if()
+            if i==2014:
+                nowyear=avg
+                distance.append(0)
             
+            else:
+                pastyear=nowyear
+                nowyear=avg
+                if pastyear==None and nowyear==None:
+                    distance.append(0)
+                    continue
+                
+                if pastyear==None or nowyear==None:
+                    distance.append(0)
+                else:
+                    distance.append((nowyear-pastyear)/pastyear*100)
             
-       
+        print(distance)
 
         ax = self.fig.add_subplot(111)
-        ax.plot(['2014','2015','2016','2017','2018','2019','2020','2021'],yearprice)
+        ax.plot(['2014','2015','2016','2017','2018','2019','2020','2021'],distance)
         ax.set_xlabel("year")
-        ax.set_ylabel("price")
+        ax.set_ylabel("Growth rate compared to last year")
         ax.legend()
         self.canvas.draw()
         self.companygraph.removeWidget(self.canvas)
@@ -216,7 +217,7 @@ class WindowClass(QMainWindow, form_class) :
             count=0
             hap=0
             avg=0.0
-            query="SELECT 판매가격 FROM new_schema.asd WHERE 상품명 LIKE '%s' AND 조사일 LIKE '%d%%';"%(self.pummok.currentText(),i)
+            query="SELECT 판매가격 FROM new_schema.asd WHERE 상품명 LIKE '%s' AND 조사일 LIKE '%d%%';"%(self.pummok.item(self.pummok.currentRow(),0).text(),i)
             # from 뒤는 본인 mySQL "스케마.테이블"로 사용해주세요
             cur.execute(query)
             connect.commit()
@@ -245,8 +246,118 @@ class WindowClass(QMainWindow, form_class) :
         ax.legend()
         self.canvas.draw()
         self.pummokgraph.removeWidget(self.canvas)
+    
         
+    def addPlace(self):
+        query="SELECT DISTINCT 판매업소 FROM new_schema.asd;"
+
+        cur.execute(query)
+        connect.commit()
         
+        self.place.addItem('')
+        datas = cur.fetchall()
+        for data in datas:
+            placename=data[0]
+            self.place.addItem(placename)
+   
+    def placePricediff(self):
+        pastyear=0
+        nowyear=0
+        
+        for i in range(2020,2022):
+            count=0
+            hap=0
+            avg=0.0
+            query="SELECT 판매가격 FROM new_schema.asd WHERE 판매업소 LIKE '%s' AND 조사일 LIKE '%d%%';"%(self.place.currentText(),i)
+           
+            cur.execute(query)
+            connect.commit()
+        
+            datas = cur.fetchall()
+            for data in datas:
+                hap+=data[0]
+                count+=1
+
+            if count==0:
+                avg=None
+            else:
+                avg=hap/count
+            
+            if i==2020:
+                pastyear=avg
+            else:
+                nowyear=avg
+         
+        if pastyear!=None and nowyear!=None:
+            self.placedifflabel.clear()
+            self.placedifflabel.setText(str(round((nowyear-pastyear)/pastyear*100,2))+'%')
+        else: 
+          self.placedifflabel.clear()
+          self.placedifflabel.setText("x") 
+        
+        self.showplacegraph()
+        
+    def showplacegraph(self):
+        distance=[]
+        pastyear=0
+        nowyear=0
+        
+        self.fig = plt.Figure()
+        self.canvas = FigureCanvas(self.fig)
+        
+        self.placegraph.addWidget(self.canvas)
+        
+      
+        
+        for i in range(2014,2022):
+            count=0
+            hap=0
+            avg=0.0
+            query="SELECT 판매가격 FROM new_schema.asd WHERE 판매업소 LIKE '%s' AND 조사일 LIKE '%d%%';"%(self.place.currentText(),i)
+            # from 뒤는 본인 mySQL "스케마.테이블"로 사용해주세요
+            cur.execute(query)
+            connect.commit()
+        
+            datas = cur.fetchall()
+            for data in datas:
+                hap+=data[0]
+                count+=1
+
+            if count==0:
+                avg=None
+            else:
+                avg=hap/count
+               
+            
+            if i==2014:
+                nowyear=avg
+                distance.append(0)
+            
+            else:
+                pastyear=nowyear
+                nowyear=avg
+                if pastyear==None and nowyear==None:
+                    distance.append(0)
+                    continue
+                
+                if pastyear==None or nowyear==None:
+                    distance.append(0)
+                else:
+                    distance.append((nowyear-pastyear)/pastyear*100)
+            
+        print(distance)
+
+        ax = self.fig.add_subplot(111)
+        ax.plot(['2014','2015','2016','2017','2018','2019','2020','2021'],distance)
+        ax.set_xlabel("year")
+        ax.set_ylabel("Growth rate compared to last year")
+        ax.legend()
+        self.canvas.draw()
+        self.placegraph.removeWidget(self.canvas)
+        
+    
+       
+       
 if __name__ == "__main__" :
     #QApplication : 프로그램을 실행시켜주는 클래스
     app = QApplication(sys.argv) 
