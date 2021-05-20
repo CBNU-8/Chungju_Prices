@@ -18,7 +18,34 @@ class WindowClass(QMainWindow, form_class) :
         self.setupUi(self)
         self.addPummok()
         self.pummok.currentIndexChanged.connect(self.pummokPricediff)
+        self.setuptableUI()
+
+    def setuptableUI(self):
+        cur.execute("SELECT COUNT(*) FROM data.db")
+        result=cur.fetchone()
         
+        self.pummok_2.setRowCount(645)
+        self.pummok_2.setColumnCount(4)
+        self.setTableWidgetData()
+        self.pummok_2.setEditTriggers(QAbstractItemView.NoEditTriggers)
+        
+    def setTableWidgetData(self):
+        i = 0
+        
+        column_headers = ['상품명', '제조사', '올해평균가격', '전년도대비상승폭']
+        self.pummok_2.setHorizontalHeaderLabels(column_headers)
+        
+        query="SELECT DISTINCT 상품명 FROM data.db;"
+        
+        cur.execute(query)
+        connect.commit()
+        
+        self.pummok.addItem('')
+        datas = cur.fetchall()
+        for data in datas:
+            pummokname=data[0] 
+            self.pummok_2.setItem(i , 0, QTableWidgetItem(pummokname))
+            i += 1
  
     def addPummok(self):
         query="SELECT DISTINCT 상품명 FROM new_schema.asd;"
@@ -31,9 +58,7 @@ class WindowClass(QMainWindow, form_class) :
         for data in datas:
             pummokname=data[0]
             self.pummok.addItem(pummokname)
-                            
-        
-
+            
     def pummokPricediff(self):
         pastyear=0
         nowyear=0
@@ -61,7 +86,6 @@ class WindowClass(QMainWindow, form_class) :
                 pastyear=avg
             else:
                 nowyear=avg
-                
          
         if pastyear!=-1 and nowyear!=-1:
             self.difflabel.clear()
@@ -70,9 +94,7 @@ class WindowClass(QMainWindow, form_class) :
           self.difflabel.clear()
           self.difflabel.setText("x") 
           
-        self.showpummokGraph()     
-    
-                                   
+        self.showpummokGraph()                           
 
     def showpummokGraph(self):
         yearprice=[]
@@ -98,8 +120,6 @@ class WindowClass(QMainWindow, form_class) :
             
             print(avg)
             yearprice.append(avg)
-       
-
         
 if __name__ == "__main__" :
     #QApplication : 프로그램을 실행시켜주는 클래스
