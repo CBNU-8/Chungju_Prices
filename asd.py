@@ -35,21 +35,22 @@ class WindowClass(QMainWindow, form_class) :
         result=cur.fetchone()
         
         self.pummok.setRowCount(645)
-        self.pummok.setColumnCount(4)
+        self.pummok.setColumnCount(2)
         self.setTableWidgetData()
         self.pummok.setEditTriggers(QAbstractItemView.NoEditTriggers)
+        self.pummok.setSortingEnabled(True)
+        self.pummok.horizontalHeader().setSectionResizeMode(0, QHeaderView.Stretch)
         
     def setTableWidgetData(self):
         i = 0
         
-        column_headers = ['상품명', '제조사', '올해평균가격', '전년도대비상승폭']
+        column_headers = ['상품명', '제조사']
         self.pummok.setHorizontalHeaderLabels(column_headers)
         
         query="SELECT DISTINCT 상품명 FROM new_schema.asd;"
         
         cur.execute(query)
         connect.commit()
-        
         
         datas = cur.fetchall()
         for data in datas:
@@ -105,8 +106,6 @@ class WindowClass(QMainWindow, form_class) :
         
         self.showcompanygraph()
           
-                     
-            
     def pummokPricediff(self):
         pastyear=0
         nowyear=0
@@ -143,6 +142,13 @@ class WindowClass(QMainWindow, form_class) :
           self.pummokdifflabel.setText("x") 
           
         self.showpummokGraph()                           
+        
+        if avg != None:
+            self.pricelabel.clear()
+            self.pricelabel.setText(str(round(avg,2)))
+        else:
+            self.pricelabel.clear()
+            self.pricelabel.setText("이번년도 데이터가 존재하지 않습니다.") 
 
     def showcompanygraph(self):
         distance=[]
@@ -205,14 +211,11 @@ class WindowClass(QMainWindow, form_class) :
     def showpummokGraph(self):
         yearprice=[]
         
-        
         self.fig = plt.Figure()
         self.canvas = FigureCanvas(self.fig)
         
         self.pummokgraph.addWidget(self.canvas)
-        
       
-        
         for i in range(2014,2022):
             count=0
             hap=0
@@ -235,9 +238,6 @@ class WindowClass(QMainWindow, form_class) :
             
             print(avg)
             yearprice.append(avg)
-            
-            
-       
 
         ax = self.fig.add_subplot(111)
         ax.plot(['2014','2015','2016','2017','2018','2019','2020','2021'],yearprice)
@@ -307,8 +307,6 @@ class WindowClass(QMainWindow, form_class) :
         
         self.placegraph.addWidget(self.canvas)
         
-      
-        
         for i in range(2014,2022):
             count=0
             hap=0
@@ -327,7 +325,6 @@ class WindowClass(QMainWindow, form_class) :
                 avg=None
             else:
                 avg=hap/count
-               
             
             if i==2014:
                 nowyear=avg
@@ -354,9 +351,6 @@ class WindowClass(QMainWindow, form_class) :
         ax.legend()
         self.canvas.draw()
         self.placegraph.removeWidget(self.canvas)
-        
-    
-       
        
 if __name__ == "__main__" :
     #QApplication : 프로그램을 실행시켜주는 클래스
