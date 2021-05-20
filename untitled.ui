@@ -38,7 +38,11 @@
     <set>Qt::ImhNone</set>
    </property>
    <property name="currentIndex">
+<<<<<<< HEAD
+    <number>2</number>
+=======
     <number>1</number>
+>>>>>>> 87c642d1a430be40cc310d1878eeca20f6291cdc
    </property>
    <property name="iconSize">
     <size>
@@ -73,6 +77,148 @@
      </property>
     </widget>
    </widget>
+<<<<<<< HEAD
+   <widget class="QWidget" name="tab_3">
+    <attribute name="title">
+     <string>판매점별</string>
+    </attribute>
+   </widget>
+   <widget class="QWidget" name="tab_4">
+    <attribute name="title">
+     <string>제조사별</string>
+    </attribute>
+    <widget class="QComboBox" name="company">
+     <property name="geometry">
+      <rect>
+       <x>270</x>
+       <y>330</y>
+       <width>571</width>
+       <height>22</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="companydifflabel">
+     <property name="geometry">
+      <rect>
+       <x>500</x>
+       <y>190</y>
+       <width>64</width>
+       <height>15</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>TextLabel</string>
+     </property>
+    </widget>
+    <widget class="QWidget" name="verticalLayoutWidget_2">
+     <property name="geometry">
+      <rect>
+       <x>280</x>
+       <y>440</y>
+       <width>691</width>
+       <height>341</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="companygraph"/>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="tab_2">
+    <attribute name="title">
+     <string>상품별</string>
+    </attribute>
+    <widget class="QLabel" name="label">
+     <property name="geometry">
+      <rect>
+       <x>180</x>
+       <y>70</y>
+       <width>261</width>
+       <height>71</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>전체 생필품 가격 변동량</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="pricetotal">
+     <property name="geometry">
+      <rect>
+       <x>180</x>
+       <y>140</y>
+       <width>211</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>30%</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="time_label">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>20</y>
+       <width>171</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>현재시간 기준 </string>
+     </property>
+    </widget>
+    <widget class="QTableWidget" name="pummok_2">
+     <property name="geometry">
+      <rect>
+       <x>15</x>
+       <y>361</y>
+       <width>1521</width>
+       <height>461</height>
+      </rect>
+     </property>
+     <property name="defaultDropAction">
+      <enum>Qt::IgnoreAction</enum>
+     </property>
+     <property name="alternatingRowColors">
+      <bool>true</bool>
+     </property>
+     <property name="selectionBehavior">
+      <enum>QAbstractItemView::SelectRows</enum>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="pummok">
+     <property name="geometry">
+      <rect>
+       <x>320</x>
+       <y>300</y>
+       <width>571</width>
+       <height>22</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QWidget" name="verticalLayoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>869</x>
+       <y>379</y>
+       <width>641</width>
+       <height>411</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="pummokgraph"/>
+    </widget>
+    <widget class="QLabel" name="difflabel">
+     <property name="geometry">
+      <rect>
+       <x>740</x>
+       <y>430</y>
+       <width>64</width>
+       <height>15</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>TextLabel</string>
+     </property>
+    </widget>
+=======
    <widget class="QWidget" name="tab_2">
     <attribute name="title">
      <string>상품별</string>
@@ -286,6 +432,7 @@
     <attribute name="title">
      <string>제조사별</string>
     </attribute>
+>>>>>>> 87c642d1a430be40cc310d1878eeca20f6291cdc
    </widget>
   </widget>
  </widget>
