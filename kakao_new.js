@@ -52,7 +52,7 @@ function placesSearchCB(data, status, pagination) {
         displayPlaces(data);
 
         // 페이지 번호를 표출합니다
-        displayPagination(pagination);
+        // displayPagination(pagination);
 
     } else if (status === kakao.maps.services.Status.ZERO_RESULT) {
 
@@ -86,8 +86,19 @@ function displayPlaces(places) {
 
         // 마커를 생성하고 지도에 표시합니다
         var placePosition = new kakao.maps.LatLng(places[i].y, places[i].x),
-            marker = addMarker(placePosition, i), 
+            //marker = addMarker(placePosition, i), 
             itemEl = getListItem(i, places[i]); // 검색 결과 항목 Element를 생성합니다
+
+        // 마커가 표시될 위치입니다 
+        var markerPosition  = new kakao.maps.LatLng(places[i].y, places[i].x); 
+
+        // 마커를 생성합니다
+        var marker = new kakao.maps.Marker({
+        position: markerPosition
+        });
+
+        // 마커가 지도 위에 표시되도록 설정합니다
+        marker.setMap(map);
 
         // 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
         // LatLngBounds 객체에 좌표를 추가합니다
@@ -149,26 +160,26 @@ function getListItem(index, places) {
     return el;
 }
 
-// 마커를 생성하고 지도 위에 마커를 표시하는 함수입니다
-function addMarker(position, idx, title) {
-    var imageSrc = 'https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_number_blue.png', // 마커 이미지 url, 스프라이트 이미지를 씁니다
-        imageSize = new kakao.maps.Size(36, 37),  // 마커 이미지의 크기
-        imgOptions =  {
-            spriteSize : new kakao.maps.Size(36, 691), // 스프라이트 이미지의 크기
-            spriteOrigin : new kakao.maps.Point(0, (idx*46)+10), // 스프라이트 이미지 중 사용할 영역의 좌상단 좌표
-            offset: new kakao.maps.Point(13, 37) // 마커 좌표에 일치시킬 이미지 내에서의 좌표
-        },
-        markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imgOptions),
-            marker = new kakao.maps.Marker({
-            position: position, // 마커의 위치
-            image: markerImage 
-        });
+// // 마커를 생성하고 지도 위에 마커를 표시하는 함수입니다
+// function addMarker(position, idx, title) {
+//     var imageSrc = 'https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_number_blue.png', // 마커 이미지 url, 스프라이트 이미지를 씁니다
+//         imageSize = new kakao.maps.Size(36, 37),  // 마커 이미지의 크기
+//         imgOptions =  {
+//             spriteSize : new kakao.maps.Size(36, 691), // 스프라이트 이미지의 크기
+//             spriteOrigin : new kakao.maps.Point(0, (idx*46)+10), // 스프라이트 이미지 중 사용할 영역의 좌상단 좌표
+//             offset: new kakao.maps.Point(13, 37) // 마커 좌표에 일치시킬 이미지 내에서의 좌표
+//         },
+//         markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imgOptions),
+//             marker = new kakao.maps.Marker({
+//             position: position, // 마커의 위치
+//             image: markerImage 
+//         });
 
-    marker.setMap(map); // 지도 위에 마커를 표출합니다
-    markers.push(marker);  // 배열에 생성된 마커를 추가합니다
+//     marker.setMap(map); // 지도 위에 마커를 표출합니다
+//     markers.push(marker);  // 배열에 생성된 마커를 추가합니다
 
-    return marker;
-}
+//     return marker;
+// }
 
 // 지도 위에 표시되고 있는 마커를 모두 제거합니다
 function removeMarker() {
@@ -179,35 +190,35 @@ function removeMarker() {
 }
 
 // 검색결과 목록 하단에 페이지번호를 표시는 함수입니다
-function displayPagination(pagination) {
-    var paginationEl = document.getElementById('pagination'),
-        fragment = document.createDocumentFragment(),
-        i; 
+// function displayPagination(pagination) {
+//     var paginationEl = document.getElementById('pagination'),
+//         fragment = document.createDocumentFragment(),
+//         i; 
 
-    // 기존에 추가된 페이지번호를 삭제합니다
-    while (paginationEl.hasChildNodes()) {
-        paginationEl.removeChild (paginationEl.lastChild);
-    }
+//     // 기존에 추가된 페이지번호를 삭제합니다
+//     while (paginationEl.hasChildNodes()) {
+//         paginationEl.removeChild (paginationEl.lastChild);
+//     }
 
-    for (i=1; i<=pagination.last; i++) {
-        var el = document.createElement('a');
-        el.href = "#";
-        el.innerHTML = i;
+//     for (i=1; i<=pagination.last; i++) {
+//         var el = document.createElement('a');
+//         el.href = "#";
+//         el.innerHTML = i;
 
-        if (i===pagination.current) {
-            el.className = 'on';
-        } else {
-            el.onclick = (function(i) {
-                return function() {
-                    pagination.gotoPage(i);
-                }
-            })(i);
-        }
+//         if (i===pagination.current) {
+//             el.className = 'on';
+//         } else {
+//             el.onclick = (function(i) {
+//                 return function() {
+//                     pagination.gotoPage(i);
+//                 }
+//             })(i);
+//         }
 
-        fragment.appendChild(el);
-    }
-    paginationEl.appendChild(fragment);
-}
+//         fragment.appendChild(el);
+//     }
+//     paginationEl.appendChild(fragment);
+// }
 
 
 // json 형식의 파일에서 값들을 불러오는 함수입니다.
@@ -231,9 +242,11 @@ function callFunction(){
         var goods = jsonObject.상품명;
         var date = jsonObject.조사일;
         var price = jsonObject.판매가격;
+        var place = jsonObject.판매업소;
         document.getElementById("goods").innerHTML = goods;
         document.getElementById("date").innerHTML = date;
         document.getElementById("price").innerHTML = price;
+        document.getElementById('keyword').value = place;
     }
   }
 }
