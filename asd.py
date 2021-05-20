@@ -48,8 +48,8 @@ class WindowClass(QMainWindow, form_class) :
         self.company.setColumnCount(1)
         self.setcompanyTableWidgetData()
         self.company.setEditTriggers(QAbstractItemView.NoEditTriggers)
-        self.pummok.setSortingEnabled(True)
-        self.pummok.horizontalHeader().setSectionResizeMode(0, QHeaderView.Stretch)
+        self.company.setSortingEnabled(True)
+        self.company.horizontalHeader().setSectionResizeMode(0, QHeaderView.Stretch)
         
         cur.execute("SELECT COUNT(DISTINCT 판매업소) FROM new_schema.asd")
         result=cur.fetchone()
@@ -58,8 +58,8 @@ class WindowClass(QMainWindow, form_class) :
         self.place.setColumnCount(1)
         self.setplaceTableWidgetData()
         self.place.setEditTriggers(QAbstractItemView.NoEditTriggers)
-        self.pummok.setSortingEnabled(True)
-        self.pummok.horizontalHeader().setSectionResizeMode(0, QHeaderView.Stretch)
+        self.place.setSortingEnabled(True)
+        self.place.horizontalHeader().setSectionResizeMode(0, QHeaderView.Stretch)
         
         
         
