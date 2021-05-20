@@ -38,7 +38,7 @@
     <set>Qt::ImhNone</set>
    </property>
    <property name="currentIndex">
-    <number>3</number>
+    <number>1</number>
    </property>
    <property name="iconSize">
     <size>
@@ -77,16 +77,6 @@
     <attribute name="title">
      <string>판매점별</string>
     </attribute>
-    <widget class="QComboBox" name="place">
-     <property name="geometry">
-      <rect>
-       <x>230</x>
-       <y>280</y>
-       <width>591</width>
-       <height>22</height>
-      </rect>
-     </property>
-    </widget>
     <widget class="QLabel" name="placedifflabel">
      <property name="geometry">
       <rect>
@@ -103,29 +93,32 @@
     <widget class="QWidget" name="verticalLayoutWidget_3">
      <property name="geometry">
       <rect>
-       <x>290</x>
-       <y>420</y>
+       <x>580</x>
+       <y>460</y>
        <width>541</width>
        <height>281</height>
       </rect>
      </property>
      <layout class="QVBoxLayout" name="placegraph"/>
     </widget>
+    <widget class="QTableWidget" name="place">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>400</y>
+       <width>1111</width>
+       <height>401</height>
+      </rect>
+     </property>
+    </widget>
+    <zorder>place</zorder>
+    <zorder>placedifflabel</zorder>
+    <zorder>verticalLayoutWidget_3</zorder>
    </widget>
    <widget class="QWidget" name="tab_4">
     <attribute name="title">
      <string>제조사별</string>
     </attribute>
-    <widget class="QComboBox" name="company">
-     <property name="geometry">
-      <rect>
-       <x>270</x>
-       <y>330</y>
-       <width>571</width>
-       <height>22</height>
-      </rect>
-     </property>
-    </widget>
     <widget class="QLabel" name="companydifflabel">
      <property name="geometry">
       <rect>
@@ -142,14 +135,30 @@
     <widget class="QWidget" name="verticalLayoutWidget_2">
      <property name="geometry">
       <rect>
-       <x>280</x>
-       <y>440</y>
-       <width>691</width>
-       <height>341</height>
+       <x>760</x>
+       <y>460</y>
+       <width>361</width>
+       <height>301</height>
       </rect>
      </property>
      <layout class="QVBoxLayout" name="companygraph"/>
     </widget>
+    <widget class="QTableWidget" name="company">
+     <property name="geometry">
+      <rect>
+       <x>-70</x>
+       <y>440</y>
+       <width>1261</width>
+       <height>351</height>
+      </rect>
+     </property>
+     <property name="selectionBehavior">
+      <enum>QAbstractItemView::SelectRows</enum>
+     </property>
+    </widget>
+    <zorder>company</zorder>
+    <zorder>companydifflabel</zorder>
+    <zorder>verticalLayoutWidget_2</zorder>
    </widget>
    <widget class="QWidget" name="tab_2">
     <attribute name="title">
@@ -237,6 +246,12 @@
       <string>TextLabel</string>
      </property>
     </widget>
+    <zorder>pummok</zorder>
+    <zorder>label</zorder>
+    <zorder>pricetotal</zorder>
+    <zorder>time_label</zorder>
+    <zorder>verticalLayoutWidget</zorder>
+    <zorder>pummokdifflabel</zorder>
    </widget>
   </widget>
  </widget>
