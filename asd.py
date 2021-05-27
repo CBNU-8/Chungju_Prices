@@ -22,12 +22,10 @@ class WindowClass(QMainWindow, form_class) :
         super().__init__()
         self.setupUi(self)
         self.setuptableUI()
-        
-        
         self.company.cellClicked.connect(self.companyPricediff)
         self.place.cellClicked.connect(self.placePricediff)
         self.pummok.cellClicked.connect(self.pummokPricediff)
-
+        self.setFixedSize(1280, 720)
 
     def setuptableUI(self):
         cur.execute("SELECT COUNT(DISTINCT 상품명) FROM new_schema.asd")
