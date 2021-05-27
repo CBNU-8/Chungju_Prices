@@ -136,7 +136,7 @@ class WindowClass(QMainWindow, form_class) :
             self.companydifflabel.setText(str(round((nowyear-pastyear)/pastyear*100,2))+'%')
         else: 
           self.companydifflabel.clear()
-          self.companydifflabel.setText("x") 
+          self.companydifflabel.setText("작년/올해 데이터가 없습니다.") 
         
         self.showcompanygraph()            
             
@@ -173,7 +173,7 @@ class WindowClass(QMainWindow, form_class) :
             self.pummokdifflabel.setText(str(round((nowyear-pastyear)/pastyear*100,2))+'%')
         else: 
           self.pummokdifflabel.clear()
-          self.pummokdifflabel.setText("x") 
+          self.pummokdifflabel.setText("작년/올해 데이터가 없습니다.") 
           
         self.showpummokGraph()                           
 
@@ -304,7 +304,7 @@ class WindowClass(QMainWindow, form_class) :
             self.placedifflabel.setText(str(round((nowyear-pastyear)/pastyear*100,2))+'%')
         else: 
           self.placedifflabel.clear()
-          self.placedifflabel.setText("x") 
+          self.placedifflabel.setText("작년/올해 데이터가 없습니다.") 
         
         self.showplacegraph()
         
