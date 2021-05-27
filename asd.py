@@ -23,6 +23,7 @@ class WindowClass(QMainWindow, form_class) :
         self.place.cellClicked.connect(self.placePricediff)
         self.pummok.cellClicked.connect(self.pummokPricediff)
         self.setFixedSize(1280, 720)
+        self.setWindowTitle("청주 물가 바로보기")
 
     def setuptableUI(self):
         cur.execute("SELECT COUNT(DISTINCT 상품명) FROM new_schema.asd")
