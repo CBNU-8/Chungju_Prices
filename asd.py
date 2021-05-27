@@ -177,7 +177,7 @@ class WindowClass(QMainWindow, form_class) :
             self.pricelabel.setText(str(round(avg, 2))) 
         else:
             self.pricelabel.clear()
-            self.pricelabel.setText("작년/올해 데이터가 없습니다.")
+            self.pricelabel.setText("올해 데이터가 없습니다.")
             
         if pastyear!=None and nowyear!=None:
             self.pummokdifflabel.clear()
