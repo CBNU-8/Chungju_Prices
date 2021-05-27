@@ -1,14 +1,5 @@
 {
   "chungju_store": [
-      {
-      "store_name_get": null,
-      "store_name_re": null,
-      "latitude": null,
-      "longitude": null,
-      "addr1": null,
-      "addr2": null,
-      "address": null
-    },
     {
       "store_name_get": "홈플러스 청주점",
       "store_name_re": null,
