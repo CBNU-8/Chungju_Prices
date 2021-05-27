@@ -38,7 +38,7 @@
     <set>Qt::ImhNone</set>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>3</number>
    </property>
    <property name="iconSize">
     <size>
@@ -794,7 +794,7 @@
      <property name="geometry">
       <rect>
        <x>-10</x>
-       <y>10</y>
+       <y>-20</y>
        <width>1411</width>
        <height>761</height>
       </rect>
