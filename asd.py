@@ -247,7 +247,7 @@ class WindowClass(QMainWindow, form_class) :
         print(distance)
 
         ax = self.fig.add_subplot(111)
-        ax.plot(['2014','2015','2016','2017','2018','2019','2020','2021'],distance)
+        ax.plot(['2014','2015','2016','2017','2018','2019','2020','2021'],distance,marker='o')
         ax.set_xlabel("year")
         ax.set_ylabel("Growth rate compared to last year")
         ax.legend()
@@ -292,7 +292,7 @@ class WindowClass(QMainWindow, form_class) :
        
 
         ax = self.fig.add_subplot(111)
-        ax.plot(['2014','2015','2016','2017','2018','2019','2020','2021'],yearprice)
+        ax.plot(['2014','2015','2016','2017','2018','2019','2020','2021'],yearprice,marker='o')
         ax.set_xlabel("year")
         ax.set_ylabel("price")
         ax.legend()
@@ -389,7 +389,7 @@ class WindowClass(QMainWindow, form_class) :
         print(distance)
 
         ax = self.fig.add_subplot(111)
-        ax.plot(['2014','2015','2016','2017','2018','2019','2020','2021'],distance)
+        ax.plot(['2014','2015','2016','2017','2018','2019','2020','2021'],distance,marker='o')
         ax.set_xlabel("year")
         ax.set_ylabel("Growth rate compared to last year")
         ax.legend()
