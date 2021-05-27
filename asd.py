@@ -56,19 +56,21 @@ class WindowClass(QMainWindow, form_class) :
         self.place.horizontalHeader().setSectionResizeMode(0, QHeaderView.Stretch)
         
     def setpummokTableWidgetData(self):
-        i = 0
+       i = 0
         
         column_headers = ['상품명', '제조사']
         self.pummok.setHorizontalHeaderLabels(column_headers)
         
-        query="SELECT DISTINCT 상품명 FROM new_schema.asd;"
+        query="SELECT DISTINCT 상품명, 제조사 FROM data.db;"
         cur.execute(query)
         connect.commit()
         
         datas = cur.fetchall()
         for data in datas:
             pummokname=data[0] 
+            companyname=data[1]
             self.pummok.setItem(i , 0, QTableWidgetItem(pummokname))
+            self.pummok.setItem(i , 1, QTableWidgetItem(companyname))
             i += 1
  
     def setcompanyTableWidgetData(self):
