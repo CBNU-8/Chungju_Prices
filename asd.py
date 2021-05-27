@@ -34,6 +34,7 @@ class WindowClass(QMainWindow, form_class) :
         self.pummok.setEditTriggers(QAbstractItemView.NoEditTriggers)
         self.pummok.setSortingEnabled(True)
         self.pummok.horizontalHeader().setSectionResizeMode(0, QHeaderView.Stretch)
+        self.pummok.setColumnWidth(1, self.width()*1/6)
         
         cur.execute("SELECT COUNT(DISTINCT 제조사) FROM new_schema.asd")
         result=cur.fetchone()
