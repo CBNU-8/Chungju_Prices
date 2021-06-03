@@ -172,17 +172,10 @@ class WindowClass(QMainWindow, form_class) :
                 nowyear=avg
                 if nowyear==None:
                     self.pricelabel.clear()
-                    self.pricelabel.setText("x")
+                    self.pricelabel.setText("올해 데이터가 없습니다.")
                 else:
                     self.pricelabel.clear()
                     self.pricelabel.setText(str(round(nowyear))+'원')
-                    
-        if nowyear!=None:
-            self.pricelabel.clear()
-            self.pricelabel.setText(str(round(avg, 2))) 
-        else:
-            self.pricelabel.clear()
-            self.pricelabel.setText("올해 데이터가 없습니다.")
          
         if pastyear!=None and nowyear!=None:
             self.pummokdifflabel.clear()
