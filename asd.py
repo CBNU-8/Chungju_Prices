@@ -26,13 +26,11 @@ class WindowClass(QMainWindow, form_class) :
         self.place.cellClicked.connect(self.placePricediff)
         self.pummok.cellClicked.connect(self.pummokPricediff)
         self.setFixedSize(1280, 720)
-        self.setWindowTitle("청주 물가 바로보기")
+        self.setWindowTitle("Pricer")
         self.setupMap()
-    
     
     def setupMap(self):
         os.remove("jijum.json")
-
        
     def setuptableUI(self):
         cur.execute("SELECT COUNT(DISTINCT 상품명) FROM new_schema.asd")
@@ -79,7 +77,9 @@ class WindowClass(QMainWindow, form_class) :
         datas = cur.fetchall()
         for data in datas:
             pummokname=data[0] 
+            companyname=data[1]
             self.pummok.setItem(i , 0, QTableWidgetItem(pummokname))
+            self.pummok.setItem(i , 1, QTableWidgetItem(companyname))
             i += 1
  
     def setcompanyTableWidgetData(self):
@@ -185,8 +185,6 @@ class WindowClass(QMainWindow, form_class) :
                 else:
                     self.pricelabel.clear()
                     self.pricelabel.setText(str(round(nowyear))+'원')
-                    
-    
          
         if pastyear!=None and nowyear!=None:
             self.pummokdifflabel.clear()
@@ -370,7 +368,6 @@ class WindowClass(QMainWindow, form_class) :
                 avg=None
             else:
                 avg=hap/count
-               
             
             if i==2014:
                 nowyear=avg
