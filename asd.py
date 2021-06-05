@@ -70,7 +70,7 @@ class WindowClass(QMainWindow, form_class) :
         column_headers = ['상품명', '제조사']
         self.pummok.setHorizontalHeaderLabels(column_headers)
         
-        query="SELECT DISTINCT 상품명 FROM new_schema.asd;"
+        query="SELECT DISTINCT 상품명, 제조사 FROM new_schema.asd;"
         cur.execute(query)
         connect.commit()
         
