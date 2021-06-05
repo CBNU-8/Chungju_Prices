@@ -14,8 +14,8 @@ if (navigator.geolocation) {
         var lat = position.coords.latitude, // 위도
             lon = position.coords.longitude; // 경도
         
-        var locPosition = new kakao.maps.LatLng(lat, lon), // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
-            message = '<div style="padding:5px;">현위치</div>'; // 인포윈도우에 표시될 내용입니다
+        var locPosition = new kakao.maps.LatLng(lat, lon);
+        var message = "나의 위치";
         
         // 마커와 인포윈도우를 표시합니다
         displayMarker(locPosition, message);
@@ -25,7 +25,7 @@ if (navigator.geolocation) {
 } else { // HTML5의 GeoLocation을 사용할 수 없을때 마커 표시 위치와 인포윈도우 내용을 설정합니다
     
     var locPosition = new kakao.maps.LatLng(33.450701, 126.570667),    
-        message = 'geolocation을 사용할수 없어요..'
+        message = '위치 검색 실패'
         
     displayMarker(locPosition, message);
 }
@@ -38,18 +38,19 @@ function displayMarker(locPosition, message) {
         map: map, 
         position: locPosition
     }); 
-    
-    var iwContent = message, // 인포윈도우에 표시할 내용
-        iwRemoveable = true;
 
-    // 인포윈도우를 생성합니다
-    var infowindow = new kakao.maps.InfoWindow({
-        content : iwContent,
-        removable : iwRemoveable
+    // 커스텀 오버레이에 표시할 내용입니다     
+    // HTML 문자열 또는 Dom Element 입니다 
+    var content = '<h2 class ="label"><span class="left"></span><span class="center">' + message +'</span><span class="right"></span></h2>';
+
+    // 커스텀 오버레이를 생성합니다
+    var customOverlay = new kakao.maps.CustomOverlay({
+        position: locPosition,
+        content: content   
     });
-    
-    // 인포윈도우를 마커위에 표시합니다 
-    infowindow.open(map, marker);
+
+        // 커스텀 오버레이를 지도에 표시합니다
+    customOverlay.setMap(map);
 }  
 
 
@@ -107,8 +108,8 @@ function searchPlaces() {
 
             // 장소검색 객체를 통해 키워드로 장소검색을 요청합니다
             ps.keywordSearch(keyword, placesSearchCB); 
-                }
-            });          
+        }
+    });          
 }
 
 // 장소검색이 완료됐을 때 호출되는 콜백함수 입니다
@@ -131,6 +132,20 @@ function placesSearchCB(data, status) {
 
     }
 }
+
+
+function download(filename, text) {
+    var element = document.createElement('a');
+    element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+    element.setAttribute('download', filename);
+  
+    element.style.display = 'none';
+    document.body.appendChild(element);
+  
+    element.click();
+  
+    document.body.removeChild(element);
+  }
 
 // 검색 결과 목록과 마커를 표출하는 함수입니다
 function displayPlaces(places) {
@@ -167,7 +182,7 @@ function displayPlaces(places) {
 
         // 커스텀 오버레이에 표시할 내용입니다     
         // HTML 문자열 또는 Dom Element 입니다 
-        var content = '<h2 class ="label"><span class="left"></span><span class="center">' + itemEl.json + ' </span><span class="right"></span></h2>';
+        var content = '<h2 class ="label"><span class="left"></span><span class="center">' + itemEl.placenamee + ' </span><span class="right"></span></h2>';
 
         // 커스텀 오버레이를 생성합니다
         var customOverlay = new kakao.maps.CustomOverlay({
@@ -198,21 +213,17 @@ function displayPlaces(places) {
                 infowindow.close();
             });
 
-            itemEl.onmouseover =  function () {
-                var htmltxt = itemEl.innerHTML;
-                displayInfowindow(marker, title, htmltxt);
-            };
-
-            itemEl.onmouseout =  function () {
-                infowindow.close();
-            };
+            kakao.maps.event.addListener(marker, 'click', function() {
+                var txt = "{" + "\" 판매업소 \":" + "\"" + itemEl.placenamee + "\"" + "}";
+                // Start file download.
+                download("click.json", txt);
+            });
 
         })(marker, places[0].place_name);
 
         fragment.appendChild(itemEl);
     }
 }
-
 
 
 // 검색결과 항목을 Element로 반환하는 함수입니다
@@ -227,7 +238,7 @@ function getListItem(index, places) {
 
     el.innerHTML = itemStr; 
     el.className = 'item';
-    el.json = places.place_name;
+    el.placenamee = places.place_name;
 
     return el;
 }
