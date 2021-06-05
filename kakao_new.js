@@ -166,18 +166,18 @@ function displayPlaces(places) {
 
         var overlayposition = new kakao.maps.LatLng(places[0].y + 20, places[0].x + 20);
 
-        // 커스텀 오버레이에 표시할 내용입니다     
-        // HTML 문자열 또는 Dom Element 입니다 
-        var content = '<h2 class ="label"><span class="left"></span><span class="center">' + itemEl.placenamee + ' </span><span class="right"></span></h2>';
+        // // 커스텀 오버레이에 표시할 내용입니다     
+        // // HTML 문자열 또는 Dom Element 입니다 
+        // var content = '<h2 class ="label"><span class="left"></span><span class="center">' + itemEl.placenamee + ' </span><span class="right"></span></h2>';
 
-        // 커스텀 오버레이를 생성합니다
-        var customOverlay = new kakao.maps.CustomOverlay({
-            position: overlayposition,
-            content: content
-        });
+        // // 커스텀 오버레이를 생성합니다
+        // var customOverlay = new kakao.maps.CustomOverlay({
+        //     position: overlayposition,
+        //     content: content
+        // });
 
-        // 커스텀 오버레이를 지도에 표시합니다
-        customOverlay.setMap(map);
+        // // 커스텀 오버레이를 지도에 표시합니다
+        // customOverlay.setMap(map);
 
         // 마커가 지도 위에 표시되도록 설정합니다
         marker.setMap(map);
