@@ -45,7 +45,7 @@
     <enum>QTabWidget::Rounded</enum>
    </property>
    <property name="currentIndex">
-    <number>2</number>
+    <number>3</number>
    </property>
    <property name="iconSize">
     <size>
@@ -946,6 +946,29 @@
       <set>Qt::AlignCenter</set>
      </property>
     </widget>
+    <widget class="QLineEdit" name="pummokText">
+     <property name="geometry">
+      <rect>
+       <x>430</x>
+       <y>60</y>
+       <width>521</width>
+       <height>41</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pummokButton">
+     <property name="geometry">
+      <rect>
+       <x>960</x>
+       <y>60</y>
+       <width>51</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>검색</string>
+     </property>
+    </widget>
     <zorder>label_35</zorder>
     <zorder>label</zorder>
     <zorder>formLayoutWidget</zorder>
@@ -972,6 +995,8 @@
     <zorder>label_86</zorder>
     <zorder>label_7</zorder>
     <zorder>difftotal</zorder>
+    <zorder>pummokText</zorder>
+    <zorder>pummokButton</zorder>
    </widget>
    <widget class="QWidget" name="tab_3">
     <attribute name="title">
@@ -1427,6 +1452,29 @@
       <pixmap>checkbox.png</pixmap>
      </property>
     </widget>
+    <widget class="QLineEdit" name="jijumText">
+     <property name="geometry">
+      <rect>
+       <x>430</x>
+       <y>60</y>
+       <width>521</width>
+       <height>41</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="jijumButton">
+     <property name="geometry">
+      <rect>
+       <x>960</x>
+       <y>60</y>
+       <width>51</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>검색</string>
+     </property>
+    </widget>
     <zorder>label_36</zorder>
     <zorder>formLayoutWidget_2</zorder>
     <zorder>verticalLayoutWidget_2</zorder>
@@ -1451,6 +1499,8 @@
     <zorder>label_73</zorder>
     <zorder>label_74</zorder>
     <zorder>label_75</zorder>
+    <zorder>jijumText</zorder>
+    <zorder>jijumButton</zorder>
    </widget>
    <widget class="QWidget" name="tab_4">
     <attribute name="title">
@@ -1770,7 +1820,7 @@
       <rect>
        <x>100</x>
        <y>40</y>
-       <width>251</width>
+       <width>291</width>
        <height>91</height>
       </rect>
      </property>
@@ -1867,6 +1917,29 @@
       <pixmap>품목배경2.png</pixmap>
      </property>
     </widget>
+    <widget class="QLineEdit" name="companyText">
+     <property name="geometry">
+      <rect>
+       <x>430</x>
+       <y>60</y>
+       <width>521</width>
+       <height>41</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="companyButton">
+     <property name="geometry">
+      <rect>
+       <x>960</x>
+       <y>60</y>
+       <width>51</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>검색</string>
+     </property>
+    </widget>
     <zorder>label_37</zorder>
     <zorder>verticalLayoutWidget_3</zorder>
     <zorder>formLayoutWidget_3</zorder>
@@ -1889,6 +1962,8 @@
     <zorder>label_76</zorder>
     <zorder>label_77</zorder>
     <zorder>label_78</zorder>
+    <zorder>companyText</zorder>
+    <zorder>companyButton</zorder>
    </widget>
   </widget>
   <widget class="QLabel" name="label_33">

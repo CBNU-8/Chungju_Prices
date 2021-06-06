@@ -28,10 +28,17 @@ class WindowClass(QMainWindow, form_class) :
         self.setFixedSize(1280, 720)
         self.setWindowTitle("Pricer")
         self.setupMap()
+        self.pummokButton.clicked.connect(self.pummokSearch)
+        self.jijumButton.clicked.connect(self.jijumSearch)
+        self.companyButton.clicked.connect(self.companySearch)
     
     def setupMap(self):
-        os.remove("jijum.json")
-       
+        if os.path.exists("jijum.json"):
+            os.remove("jijum.json")
+    
+    
+    def pummokAvgPer(self):
+        query="select distinct 상품명 from new_schema.asd"
     def setuptableUI(self):
         cur.execute("SELECT COUNT(DISTINCT 상품명) FROM new_schema.asd")
         result=cur.fetchone()
@@ -113,7 +120,31 @@ class WindowClass(QMainWindow, form_class) :
             placename=data[0] 
             self.place.setItem(i , 0, QTableWidgetItem(placename))
             i += 1
-     
+    
+    
+    def pummokSearch(self):
+        keyword=self.pummokText.text()
+        for i in range(0, self.pummok.rowCount()):
+            if keyword==self.pummok.item(i,0).text():
+                self.pummok.setCurrentCell(i,0)
+                self.pummokPricediff()
+                
+                
+    def jijumSearch(self): 
+        keyword=self.jijumText.text()
+        for i in range(0, self.place.rowCount()):
+            if keyword==self.place.item(i,0).text():
+                self.place.setCurrentCell(i,0)
+                self.placePricediff()
+                
+    def companySearch(self):
+        keyword=self.companyText.text()
+        for i in range(0, self.company.rowCount()):
+            if keyword==self.company.item(i,0).text():
+                self.company.setCurrentCell(i,0)
+                self.companyPricediff()
+                
+                
     def companyPricediff(self):
         pastyear=0
         nowyear=0
