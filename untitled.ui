@@ -45,7 +45,7 @@
     <enum>QTabWidget::Rounded</enum>
    </property>
    <property name="currentIndex">
-    <number>3</number>
+    <number>0</number>
    </property>
    <property name="iconSize">
     <size>
@@ -165,28 +165,12 @@
       <pixmap>품목배경2.png</pixmap>
      </property>
     </widget>
-    <widget class="QLabel" name="label_50">
-     <property name="geometry">
-      <rect>
-       <x>430</x>
-       <y>180</y>
-       <width>5</width>
-       <height>450</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="pixmap">
-      <pixmap>품목배경2.png</pixmap>
-     </property>
-    </widget>
     <widget class="QLabel" name="label_46">
      <property name="geometry">
       <rect>
        <x>130</x>
        <y>554</y>
-       <width>305</width>
+       <width>396</width>
        <height>81</height>
       </rect>
      </property>
@@ -202,7 +186,7 @@
       <rect>
        <x>130</x>
        <y>180</y>
-       <width>305</width>
+       <width>393</width>
        <height>5</height>
       </rect>
      </property>
@@ -211,50 +195,6 @@
      </property>
      <property name="pixmap">
       <pixmap>품목배경2.png</pixmap>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_55">
-     <property name="geometry">
-      <rect>
-       <x>140</x>
-       <y>200</y>
-       <width>291</width>
-       <height>91</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>나눔스퀘어 ExtraBold</family>
-       <pointsize>12</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:48pt; color:#2699fb;&quot;&gt;공식표기&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_56">
-     <property name="geometry">
-      <rect>
-       <x>210</x>
-       <y>350</y>
-       <width>151</width>
-       <height>61</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>나눔스퀘어 ExtraBold</family>
-       <pointsize>12</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:26pt; color:#2699fb;&quot;&gt;공식설명&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
      </property>
     </widget>
     <widget class="QLabel" name="label_57">
@@ -289,22 +229,6 @@
       <pixmap>품목배경2.png</pixmap>
      </property>
     </widget>
-    <widget class="QLabel" name="label_59">
-     <property name="geometry">
-      <rect>
-       <x>520</x>
-       <y>180</y>
-       <width>5</width>
-       <height>450</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="pixmap">
-      <pixmap>품목배경2.png</pixmap>
-     </property>
-    </widget>
     <widget class="QLabel" name="label_60">
      <property name="geometry">
       <rect>
@@ -321,35 +245,13 @@
       <pixmap>품목배경2.png</pixmap>
      </property>
     </widget>
-    <widget class="QLabel" name="label_61">
-     <property name="geometry">
-      <rect>
-       <x>550</x>
-       <y>200</y>
-       <width>521</width>
-       <height>91</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>나눔스퀘어 ExtraBold</family>
-       <pointsize>12</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:48pt; color:#2699fb;&quot;&gt;프로그램 설명&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
-    </widget>
     <widget class="QLabel" name="label_51">
      <property name="geometry">
       <rect>
-       <x>520</x>
-       <y>552</y>
+       <x>521</x>
+       <y>554</y>
        <width>601</width>
-       <height>79</height>
+       <height>78</height>
       </rect>
      </property>
      <property name="text">
@@ -397,32 +299,554 @@
       </item>
      </layout>
     </widget>
+    <widget class="QTabWidget" name="tabWidget_2">
+     <property name="geometry">
+      <rect>
+       <x>135</x>
+       <y>185</y>
+       <width>985</width>
+       <height>394</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>나눔스퀘어 Bold</family>
+       <pointsize>10</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="tabPosition">
+      <enum>QTabWidget::South</enum>
+     </property>
+     <property name="tabShape">
+      <enum>QTabWidget::Rounded</enum>
+     </property>
+     <property name="currentIndex">
+      <number>0</number>
+     </property>
+     <property name="documentMode">
+      <bool>true</bool>
+     </property>
+     <widget class="QWidget" name="tab">
+      <attribute name="title">
+       <string>Pricer란?</string>
+      </attribute>
+      <widget class="QLabel" name="label_50">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>991</width>
+         <height>371</height>
+        </rect>
+       </property>
+       <property name="autoFillBackground">
+        <bool>false</bool>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap>ui 배경4.png</pixmap>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_2">
+       <property name="geometry">
+        <rect>
+         <x>110</x>
+         <y>60</y>
+         <width>581</width>
+         <height>101</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>15</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>PRICER는 소비자 생필품 물가 비교 프로그램입니다.</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label">
+       <property name="geometry">
+        <rect>
+         <x>110</x>
+         <y>160</y>
+         <width>851</width>
+         <height>151</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>15</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>제조사, 상품, 판매점등 카테고리별 비교를 통하여
+소비자들의 합리적 소비를 도와주기 위해 프로그램을 제작하였습니다.</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="tab_5">
+      <attribute name="title">
+       <string>사용법</string>
+      </attribute>
+      <widget class="QLabel" name="label_52">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>991</width>
+         <height>371</height>
+        </rect>
+       </property>
+       <property name="autoFillBackground">
+        <bool>false</bool>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap>ui 배경4.png</pixmap>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_4">
+       <property name="geometry">
+        <rect>
+         <x>540</x>
+         <y>10</y>
+         <width>261</width>
+         <height>251</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap>그래프.PNG</pixmap>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_5">
+       <property name="geometry">
+        <rect>
+         <x>150</x>
+         <y>10</y>
+         <width>351</width>
+         <height>251</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap>리스트.PNG</pixmap>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_7">
+       <property name="geometry">
+        <rect>
+         <x>260</x>
+         <y>230</y>
+         <width>491</width>
+         <height>171</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;각 탭에 있는 리스트의 항목을 클릭하면&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;우측의 정보란에 변동량과 그래프가 표시됩니다.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="tab_7">
+      <attribute name="title">
+       <string>그래프</string>
+      </attribute>
+      <widget class="QLabel" name="label_55">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>991</width>
+         <height>371</height>
+        </rect>
+       </property>
+       <property name="autoFillBackground">
+        <bool>false</bool>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap>ui 배경4.png</pixmap>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_9">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>20</y>
+         <width>341</width>
+         <height>331</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap>그래프.PNG</pixmap>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_11">
+       <property name="geometry">
+        <rect>
+         <x>400</x>
+         <y>50</y>
+         <width>601</width>
+         <height>141</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>13</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>상품별 탭 그래프 
+
+        연도별 상품의 가격을 나타내는 그래프를 보여줍니다.</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_56">
+       <property name="geometry">
+        <rect>
+         <x>400</x>
+         <y>180</y>
+         <width>601</width>
+         <height>141</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>13</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>판매점/제조사별 탭 그래프 
+
+        작년 가격 대비 변동량의 퍼센트 그래프를 보여줍니다.</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="tab_6">
+      <attribute name="title">
+       <string>지도</string>
+      </attribute>
+      <widget class="QLabel" name="label_53">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>991</width>
+         <height>371</height>
+        </rect>
+       </property>
+       <property name="autoFillBackground">
+        <bool>false</bool>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap>ui 배경4.png</pixmap>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_59">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>30</y>
+         <width>221</width>
+         <height>301</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap>지도.PNG</pixmap>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_61">
+       <property name="geometry">
+        <rect>
+         <x>280</x>
+         <y>70</y>
+         <width>651</width>
+         <height>71</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>14</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>판매점별 탭에서 리스트를 선택 시, 우측에 지도가 표시됩니다.</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_67">
+       <property name="geometry">
+        <rect>
+         <x>280</x>
+         <y>160</y>
+         <width>391</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>14</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>핀 위에는 판매점 정보가 표시되며,</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_68">
+       <property name="geometry">
+        <rect>
+         <x>280</x>
+         <y>190</y>
+         <width>691</width>
+         <height>51</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>14</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>우측 상단의 버튼을 통하여 위성사진, 지도의 크기를 조절할 수 있습니다.</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_75">
+       <property name="geometry">
+        <rect>
+         <x>280</x>
+         <y>250</y>
+         <width>601</width>
+         <height>51</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>14</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>지도를 더블클릭해 원하는 위치의 거리를 측정할 수 있습니다.</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="tab_8">
+      <attribute name="title">
+       <string>검색</string>
+      </attribute>
+      <widget class="QLabel" name="label_76">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>991</width>
+         <height>371</height>
+        </rect>
+       </property>
+       <property name="autoFillBackground">
+        <bool>false</bool>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap>ui 배경4.png</pixmap>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_96">
+       <property name="geometry">
+        <rect>
+         <x>70</x>
+         <y>110</y>
+         <width>341</width>
+         <height>5</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap>품목배경2.png</pixmap>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_97">
+       <property name="geometry">
+        <rect>
+         <x>70</x>
+         <y>50</y>
+         <width>5</width>
+         <height>65</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap>품목배경2.png</pixmap>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_98">
+       <property name="geometry">
+        <rect>
+         <x>70</x>
+         <y>50</y>
+         <width>341</width>
+         <height>5</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap>품목배경2.png</pixmap>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_99">
+       <property name="geometry">
+        <rect>
+         <x>410</x>
+         <y>50</y>
+         <width>5</width>
+         <height>65</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap>품목배경2.png</pixmap>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_100">
+       <property name="geometry">
+        <rect>
+         <x>350</x>
+         <y>50</y>
+         <width>61</width>
+         <height>61</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap>checkbox.png</pixmap>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_101">
+       <property name="geometry">
+        <rect>
+         <x>70</x>
+         <y>170</y>
+         <width>841</width>
+         <height>51</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>14</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>각 탭의 상단 검색창을 통하여 원하는 데이터를 검색할 수 있습니다.</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_102">
+       <property name="geometry">
+        <rect>
+         <x>70</x>
+         <y>250</y>
+         <width>701</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>14</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>검색어를 입력 후 우측 버튼을 누르면 해당 데이터가 바로 출력됩니다.</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_103">
+       <property name="geometry">
+        <rect>
+         <x>90</x>
+         <y>60</y>
+         <width>181</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>11</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>몽쉘 크림</string>
+       </property>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QLabel" name="label_104">
+     <property name="geometry">
+      <rect>
+       <x>1060</x>
+       <y>40</y>
+       <width>61</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap>checkbox.png</pixmap>
+     </property>
+    </widget>
    </widget>
    <widget class="QWidget" name="tab_2">
     <attribute name="title">
      <string>상품별</string>
     </attribute>
-    <widget class="QLabel" name="label">
-     <property name="geometry">
-      <rect>
-       <x>30</x>
-       <y>180</y>
-       <width>391</width>
-       <height>41</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>나눔스퀘어 ExtraBold</family>
-       <pointsize>24</pointsize>
-       <weight>75</weight>
-       <bold>true</bold>
-      </font>
-     </property>
-     <property name="text">
-      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#2699fb;&quot;&gt;전체 생필품 가격 변동량&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-     </property>
-    </widget>
     <widget class="QTableWidget" name="pummok">
      <property name="geometry">
       <rect>
@@ -548,67 +972,6 @@
       </rect>
      </property>
      <layout class="QVBoxLayout" name="pummokgraph"/>
-    </widget>
-    <widget class="QWidget" name="horizontalLayoutWidget">
-     <property name="geometry">
-      <rect>
-       <x>430</x>
-       <y>180</y>
-       <width>160</width>
-       <height>42</height>
-      </rect>
-     </property>
-     <layout class="QHBoxLayout" name="horizontalLayout">
-      <property name="leftMargin">
-       <number>0</number>
-      </property>
-      <property name="topMargin">
-       <number>0</number>
-      </property>
-      <property name="rightMargin">
-       <number>0</number>
-      </property>
-      <property name="bottomMargin">
-       <number>0</number>
-      </property>
-      <item>
-       <widget class="QLabel" name="difftotal">
-        <property name="font">
-         <font>
-          <family>나눔스퀘어 ExtraBold</family>
-          <pointsize>26</pointsize>
-          <weight>75</weight>
-          <bold>true</bold>
-         </font>
-        </property>
-        <property name="tabletTracking">
-         <bool>false</bool>
-        </property>
-        <property name="text">
-         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#2699fb;&quot;&gt;30&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLabel" name="label_7">
-        <property name="font">
-         <font>
-          <family>나눔스퀘어 ExtraBold</family>
-          <pointsize>26</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#2699fb;&quot;&gt;%&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-        </property>
-       </widget>
-      </item>
-     </layout>
     </widget>
     <widget class="QLabel" name="label_35">
      <property name="geometry">
@@ -770,27 +1133,6 @@
       <pixmap>품목배경2.png</pixmap>
      </property>
     </widget>
-    <widget class="QLabel" name="label_2">
-     <property name="geometry">
-      <rect>
-       <x>30</x>
-       <y>140</y>
-       <width>271</width>
-       <height>41</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>나눔스퀘어 ExtraBold</family>
-       <pointsize>20</pointsize>
-       <weight>75</weight>
-       <bold>true</bold>
-      </font>
-     </property>
-     <property name="text">
-      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#2699fb;&quot;&gt;2021년도 2월 기준&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-     </property>
-    </widget>
     <widget class="QLabel" name="label_81">
      <property name="geometry">
       <rect>
@@ -858,9 +1200,9 @@
     <widget class="QLabel" name="label_86">
      <property name="geometry">
       <rect>
-       <x>890</x>
+       <x>865</x>
        <y>180</y>
-       <width>201</width>
+       <width>250</width>
        <height>41</height>
       </rect>
      </property>
@@ -915,7 +1257,66 @@
       </item>
      </layout>
     </widget>
-    <widget class="QLabel" name="label_84">
+    <widget class="QLabel" name="label_64">
+     <property name="geometry">
+      <rect>
+       <x>260</x>
+       <y>180</y>
+       <width>211</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>나눔스퀘어 ExtraBold</family>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:26pt; color:#2699fb;&quot;&gt;판매점 선택&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="pummokText">
+     <property name="geometry">
+      <rect>
+       <x>405</x>
+       <y>45</y>
+       <width>533</width>
+       <height>55</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>나눔스퀘어 ExtraBold</family>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="frame">
+      <bool>false</bool>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pummokButton">
+     <property name="geometry">
+      <rect>
+       <x>938</x>
+       <y>44</y>
+       <width>63</width>
+       <height>57</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string> </string>
+     </property>
+     <property name="flat">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_95">
      <property name="geometry">
       <rect>
        <x>940</x>
@@ -932,10 +1333,8 @@
      </property>
     </widget>
     <zorder>label_35</zorder>
-    <zorder>label</zorder>
     <zorder>formLayoutWidget</zorder>
     <zorder>verticalLayoutWidget</zorder>
-    <zorder>horizontalLayoutWidget</zorder>
     <zorder>label_38</zorder>
     <zorder>pummok</zorder>
     <zorder>label_13</zorder>
@@ -946,14 +1345,16 @@
     <zorder>label_17</zorder>
     <zorder>label_18</zorder>
     <zorder>label_19</zorder>
-    <zorder>label_2</zorder>
     <zorder>label_81</zorder>
     <zorder>label_82</zorder>
     <zorder>label_83</zorder>
     <zorder>label_85</zorder>
     <zorder>label_86</zorder>
     <zorder>horizontalLayoutWidget_3</zorder>
-    <zorder>label_84</zorder>
+    <zorder>label_64</zorder>
+    <zorder>pummokText</zorder>
+    <zorder>label_95</zorder>
+    <zorder>pummokButton</zorder>
    </widget>
    <widget class="QWidget" name="tab_3">
     <attribute name="title">
@@ -1221,7 +1622,7 @@
      </property>
      <property name="url">
       <url>
-       <string>https://www.naver.com/</string>
+       <string>http://localhost:8000/kakao_new.html</string>
       </url>
      </property>
     </widget>
@@ -1333,22 +1734,6 @@
       <pixmap>품목배경2.png</pixmap>
      </property>
     </widget>
-    <widget class="QLabel" name="label_75">
-     <property name="geometry">
-      <rect>
-       <x>940</x>
-       <y>40</y>
-       <width>61</width>
-       <height>61</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="pixmap">
-      <pixmap>checkbox.png</pixmap>
-     </property>
-    </widget>
     <widget class="QWidget" name="horizontalLayoutWidget_4">
      <property name="geometry">
       <rect>
@@ -1390,9 +1775,9 @@
     <widget class="QLabel" name="label_87">
      <property name="geometry">
       <rect>
-       <x>890</x>
+       <x>865</x>
        <y>180</y>
-       <width>201</width>
+       <width>250</width>
        <height>41</height>
       </rect>
      </property>
@@ -1407,6 +1792,59 @@
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="jijumText">
+     <property name="geometry">
+      <rect>
+       <x>405</x>
+       <y>45</y>
+       <width>533</width>
+       <height>55</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>나눔스퀘어 ExtraBold</family>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="frame">
+      <bool>false</bool>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="jijumButton">
+     <property name="geometry">
+      <rect>
+       <x>938</x>
+       <y>44</y>
+       <width>63</width>
+       <height>57</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string> </string>
+     </property>
+     <property name="flat">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_88">
+     <property name="geometry">
+      <rect>
+       <x>940</x>
+       <y>40</y>
+       <width>61</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap>checkbox.png</pixmap>
      </property>
     </widget>
     <zorder>label_36</zorder>
@@ -1429,9 +1867,11 @@
     <zorder>label_70</zorder>
     <zorder>label_73</zorder>
     <zorder>label_74</zorder>
-    <zorder>label_75</zorder>
     <zorder>horizontalLayoutWidget_4</zorder>
     <zorder>label_87</zorder>
+    <zorder>jijumText</zorder>
+    <zorder>label_88</zorder>
+    <zorder>jijumButton</zorder>
    </widget>
    <widget class="QWidget" name="tab_4">
     <attribute name="title">
@@ -1711,9 +2151,9 @@
     <widget class="QLabel" name="label_66">
      <property name="geometry">
       <rect>
-       <x>890</x>
+       <x>865</x>
        <y>180</y>
-       <width>201</width>
+       <width>250</width>
        <height>41</height>
       </rect>
      </property>
@@ -1760,22 +2200,6 @@
      </property>
      <property name="pixmap">
       <pixmap>품목배경2.png</pixmap>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_76">
-     <property name="geometry">
-      <rect>
-       <x>940</x>
-       <y>40</y>
-       <width>61</width>
-       <height>61</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="pixmap">
-      <pixmap>checkbox.png</pixmap>
      </property>
     </widget>
     <widget class="QLabel" name="label_77">
@@ -1848,6 +2272,71 @@
       </item>
      </layout>
     </widget>
+    <widget class="QLineEdit" name="companyText">
+     <property name="geometry">
+      <rect>
+       <x>405</x>
+       <y>45</y>
+       <width>533</width>
+       <height>55</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>나눔스퀘어 ExtraBold</family>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="frame">
+      <bool>false</bool>
+     </property>
+     <property name="cursorPosition">
+      <number>0</number>
+     </property>
+     <property name="clearButtonEnabled">
+      <bool>false</bool>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="companyButton">
+     <property name="geometry">
+      <rect>
+       <x>938</x>
+       <y>44</y>
+       <width>63</width>
+       <height>57</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string> </string>
+     </property>
+     <property name="checkable">
+      <bool>false</bool>
+     </property>
+     <property name="default">
+      <bool>false</bool>
+     </property>
+     <property name="flat">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_84">
+     <property name="geometry">
+      <rect>
+       <x>940</x>
+       <y>40</y>
+       <width>61</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap>checkbox.png</pixmap>
+     </property>
+    </widget>
     <zorder>label_37</zorder>
     <zorder>verticalLayoutWidget_3</zorder>
     <zorder>formLayoutWidget_3</zorder>
@@ -1865,10 +2354,12 @@
     <zorder>label_66</zorder>
     <zorder>label_71</zorder>
     <zorder>label_72</zorder>
-    <zorder>label_76</zorder>
     <zorder>label_77</zorder>
     <zorder>label_78</zorder>
     <zorder>horizontalLayoutWidget_5</zorder>
+    <zorder>companyText</zorder>
+    <zorder>label_84</zorder>
+    <zorder>companyButton</zorder>
    </widget>
   </widget>
   <widget class="QLabel" name="label_33">
