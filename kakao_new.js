@@ -164,7 +164,7 @@ function displayPlaces(places) {
         });
 
 
-        var overlayposition = new kakao.maps.LatLng(places[0].y + 20, places[0].x + 20);
+        // var overlayposition = new kakao.maps.LatLng(places[0].y + 20, places[0].x + 20);
 
         // // 커스텀 오버레이에 표시할 내용입니다     
         // // HTML 문자열 또는 Dom Element 입니다 
