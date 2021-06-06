@@ -164,20 +164,20 @@ function displayPlaces(places) {
         });
 
 
-        // var overlayposition = new kakao.maps.LatLng(places[0].y + 20, places[0].x + 20);
+        var overlayposition = new kakao.maps.LatLng(places[0].y + 20, places[0].x + 20);
 
-        // // 커스텀 오버레이에 표시할 내용입니다     
-        // // HTML 문자열 또는 Dom Element 입니다 
-        // var content = '<h2 class ="label"><span class="left"></span><span class="center">' + itemEl.placenamee + ' </span><span class="right"></span></h2>';
+        // 커스텀 오버레이에 표시할 내용입니다     
+        // HTML 문자열 또는 Dom Element 입니다 
+        var content = '<h2 class ="label"><span class="left"></span><span class="center">' + itemEl.placenamee + ' </span><span class="right"></span></h2>';
 
-        // // 커스텀 오버레이를 생성합니다
-        // var customOverlay = new kakao.maps.CustomOverlay({
-        //     position: overlayposition,
-        //     content: content
-        // });
+        // 커스텀 오버레이를 생성합니다
+        var customOverlay = new kakao.maps.CustomOverlay({
+            position: overlayposition,
+            content: content
+        });
 
-        // // 커스텀 오버레이를 지도에 표시합니다
-        // customOverlay.setMap(map);
+        // 커스텀 오버레이를 지도에 표시합니다
+        customOverlay.setMap(map);
 
         // 마커가 지도 위에 표시되도록 설정합니다
         marker.setMap(map);
@@ -215,11 +215,11 @@ function displayPlaces(places) {
 function getListItem(index, places) {
 
     var el = document.createElement('li'),
-        itemStr = '<div style="padding:10px;>' + '<h5 style="font-size: 18px;">' + "지점명 : " + places.place_name + '</h5>' + '<h1 style="font-size: 15px;"> 전화번호 : ' + places.phone + '</h1>';
+        itemStr = '<div style="padding:10px;>' + '<h1 style="font-size: 14px;">' + "지점명 : " + places.place_name + '</h1>' + '<h1 style="font-size: 13px;"> 전화번호 : ' + places.phone + '</h1>';
     if (places.road_address_name)
-        itemStr += '<p style="font-size: 15px;" >' + "주소 : " + places.road_address_name + '</p>';
+        itemStr += '<h1 style="font-size: 14px;" >' + "주소 : " + places.road_address_name + '</h1></div>';
     else
-        itemStr += '<p style="font-size: 15px;" >' + "주소 : " + places.road_address_name + '</p>';
+        itemStr += '<h1 style="font-size: 14px;" >' + "주소 : " + places.road_address_name + '</h1></div>';
 
     el.url = places.place_url;
     el.innerHTML = itemStr;
