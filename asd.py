@@ -53,7 +53,7 @@ class WindowClass(QMainWindow, form_class) :
         result=cur.fetchone()
         
         self.company.setRowCount(result[0])#row번호
-        self.company.setColumnCount(1))#col번호
+        self.company.setColumnCount(1)#col번호
         self.setcompanyTableWidgetData()#회사 테이블 세팅
         self.company.setEditTriggers(QAbstractItemView.NoEditTriggers)#테이블 내 항목 수정 불가
         self.company.setSortingEnabled(True)#테이블 항목 정렬 가능
@@ -207,7 +207,7 @@ class WindowClass(QMainWindow, form_class) :
             
             if i==2020:#20년도
                 pastyear=avg#pastyear
-            else::#21년도
+            else:#21년도
                 nowyear=avg#nowyear
                 
                 if nowyear==None:#올해 데이터가 없으면
